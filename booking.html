@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FastDrive - Booking</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="home.css">
+
+</head>
+<body>
+
+  <header>
+    <h1>Book a Car</h1>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="car.html">Cars</a>
+      <a href="booking.html">Booking</a>
+      <a href="about.html">About</a>
+      <a href="contect.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="content">
+    <h2>Booking Form</h2>
+    <form id="bookingForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+
+      <label for="car-type">Car Type:</label>
+      <select id="car-type">
+        <option value="Sedan">Sedan</option>
+        <option value="SUV">SUV</option>
+        <option value="Hatchback">Hatchback</option>
+      </select>
+
+      <label for="pickup">Pick-up Date:</label>
+      <input type="date" id="pickup" required>
+
+      <label for="dropoff">Drop-off Date:</label>
+      <input type="date" id="dropoff" required>
+
+      <button type="submit" class="btn">Submit Booking</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 FastDrive. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const carType = document.getElementById('car-type').value;
+      const pickup = document.getElementById('pickup').value;
+      const dropoff = document.getElementById('dropoff').value;
+
+      const message = `🚗 *New Car Booking Request* 🚗%0A
+*Name:* ${name}%0A
+*Email:* ${email}%0A
+*Car Type:* ${carType}%0A
+*Pick-up Date:* ${pickup}%0A
+*Drop-off Date:* ${dropoff}`;
+
+      // Replace this number with your actual WhatsApp number (with country code, no plus sign)
+      const phoneNumber = "9950771298"
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+
+      window.open(whatsappURL, '_blank');
+    });
+  </script>
+
+</body>
+</html>
